@@ -5,7 +5,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import Header from './Components/Header/Header';
 import GameBoard from './Components/GameBoard/GameBoard';
-import ScoreCard from './Components/ScoreCard/ScoreCard';
 import HowToPlay from './Components/HowToPlay/HowToPlay';
 
 export const CardsContext = createContext('');
@@ -19,13 +18,11 @@ function App() {
 			<CardsContext.Provider
 				value={{ playerHand, setPlayerHand, dealerHand, setDealerHand }}>
 				<Header />
-				<GameBoard />
-				<ScoreCard />
-			</CardsContext.Provider>
 			<Routes>
+				<Route path='/' element={<GameBoard />} />
 				<Route path='/howtoplay' element={<HowToPlay />} />
-				{/* <Route path="/newgame" element={<GameBoard />} /> */}
 			</Routes>
+			</CardsContext.Provider>
 		</div>
 	);
 }
